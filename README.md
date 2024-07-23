@@ -9,10 +9,8 @@
   cd docker/
   docker pull gww106/sugicaltrack:tagname
   bash docker/run_container.sh
-
-bash build_all.sh
-
-docker exec -it sugicaltrack bash
+  bash build_all.sh
+  docker exec -it sugicaltrack bash
 ```
 
 ## Checkpoints
