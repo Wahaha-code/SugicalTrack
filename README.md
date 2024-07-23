@@ -1,25 +1,17 @@
 # SurgTrack: 3D Tracking of Real-world Surgical Instruments
 
-## Overview
-
 <div align=center>
 <img src="./docs/framework.png"> 
 </div>
 
-## Env setup(GPU 4090): docker
+## Installation
   ```
   cd docker/
   docker pull gww106/sugicaltrack:tagname
   bash docker/run_container.sh
-  ```
 
-If it's the first time you launch the container, you need to build extensions.
-```
 bash build_all.sh
-```
 
-Later you can execute into the container without re-build.
-```
 docker exec -it sugicaltrack bash
 ```
 
