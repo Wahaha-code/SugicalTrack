@@ -6,7 +6,6 @@
 <img src="./docs/framework.png"> 
 </div>
 
-![AR Applications](./docs/ezgif.com-video-to-gif-converter.gif)
 ## Env setup(GPU 4090): docker
   ```
   cd docker/
