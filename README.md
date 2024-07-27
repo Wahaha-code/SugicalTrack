@@ -50,3 +50,9 @@ python run_custom.py --mode draw_pose
 ## Citation
 
 If you use our code or paper in your work, please cite our paper.
+```
+@inproceedings{
+  title = {SurgTrack: 3D Tracking of Real-world Surgical Instruments},
+}
+
+```
