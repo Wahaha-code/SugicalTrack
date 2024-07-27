@@ -4,6 +4,12 @@
 <img src="./docs/framework.png"> 
 </div>
 
+## Instrument3D
+- We collected a data set of ultrasound instruments with aruco markers in a real operating room environment- [Instrument3D](https://cashkisi-my.sharepoint.com/:f:/g/personal/wenwu_guo_cair-cas_org_hk/EvoUjqpwUVpHql0YKIry9H0BKPEaAiiczA5jM-aZeUJ-KQ?e=wuapkx). You can use the toolkit below to create the data set.
+
+## Object Dataset Tools
+This tool is used to create object masks, bounding box labels, and pose annotations for object sequences captured by an RGB-D camera. You can following this [method.md](docs/method.md) to make your own 6DoF dataset.
+
 ## Installation
   ```
   cd docker/
@@ -14,11 +20,8 @@
 ```
 
 ## Checkpoints
-- Download pretrained [weights of segmentation network](https://drive.google.com/file/d/1MEZvjbBdNAOF7pXcq6XPQduHeXB50VTc/view?usp=share_link), and put it under
-`./checkpoints/saves/XMem-s012.pth`
+- Download pretrained [weights of segment and match network](https://cashkisi-my.sharepoint.com/:f:/g/personal/wenwu_guo_cair-cas_org_hk/Ev56IHMxC21AlWYaljNx8OcBrjiXhk8jknroISds10LM5A?e=OVzLpK), and put it under `./checkpoints/`
 
-- Download pretrained [weights of LoFTR outdoor_ds.ckpt](https://drive.google.com/drive/folders/1xu2Pq6mZT5hmFgiYMBT9Zt8h1yO-3SIp), and put it under
-`./checkpoints/LoFTR/weights/outdoor_ds.ckpt`
 
 # Inference
 - Prepare your RGBD video folder as below.
@@ -27,17 +30,17 @@ root
   ├──rgb/    (PNG files)
   ├──depth/  (PNG files, stored in mm, uint16 format. Filename same as rgb)
   ├──masks/       (PNG files. Filename same as rgb. 0 is background. Else is foreground)
-  └──cam_K.txt   (3x3 intrinsic matrix, use space and enter to delimit)
+  └──cam_K.txt   (3x3)
 ```
 - Run your RGBD video. There are 3 steps.
 ```
-# 1) Run joint tracking and reconstruction
+# 1) Tracking and reconstruction
 python run_custom.py --mode run_video --video_dir /home/surgicaltrack --use_segmenter 1 --use_gui 1 --debug_level 2
 
-# 2) Run global refinement post-processing to refine the mesh
+# 2) Global refinement 
 python run_custom.py --mode global_refine --video_dir /home/surgicaltrack   # Change the path to your video_directory
 
-# 3) (Optional) If you want to draw the oriented bounding box to visualize the pose, similar to our demo
+# 3) (Optional) Visualization
 python run_custom.py --mode draw_pose --out_folder /home/surgicaltrack
 ```
 
