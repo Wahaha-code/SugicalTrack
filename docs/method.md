@@ -11,6 +11,7 @@ pyyaml plyfile
 Print out all the QR codes in the arucomarker folder, and stick them in a circle around the object to be photographed. Try to stick them all, and stick them flatly.
 Execute the following command to start shooting. When shooting, the camera or positioning plate should rotate at a constant speed as much as possible.
 ```
+cd tools
 python record2.py LINEMOD/obj
 ```
 Calculate the displacement and rotation of each frame relative to the first frame.
