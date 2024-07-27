@@ -24,24 +24,24 @@ This tool is used to create object masks, bounding box labels, and pose annotati
 
 
 # Inference
-- Prepare your RGBD video folder as below.
+- Prepare your RGBD image folder as below.
 ```
 root
   ├──rgb/    (PNG files)
-  ├──depth/  (PNG files, stored in mm, uint16 format. Filename same as rgb)
-  ├──masks/       (PNG files. Filename same as rgb. 0 is background. Else is foreground)
+  ├──depth/  (PNG files, stored in mm, uint16 format.)
+  ├──masks/       (PNG files, 0 is background.)
   └──cam_K.txt   (3x3)
 ```
 - Run your RGBD video. There are 3 steps.
 ```
 # 1) Tracking and reconstruction
-python run_custom.py --mode run_video --video_dir /home/surgicaltrack --use_segmenter 1 --use_gui 1 --debug_level 2
+python run_custom.py --mode run_video
 
 # 2) Global refinement 
-python run_custom.py --mode global_refine --video_dir /home/surgicaltrack   # Change the path to your video_directory
+python run_custom.py --mode global_refine
 
 # 3) (Optional) Visualization
-python run_custom.py --mode draw_pose --out_folder /home/surgicaltrack
+python run_custom.py --mode draw_pose
 ```
 
 
